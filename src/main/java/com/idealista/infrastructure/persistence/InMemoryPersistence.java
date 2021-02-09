@@ -1,7 +1,9 @@
 package com.idealista.infrastructure.persistence;
 
-import com.idealista.domain.models.entity.AdVO;
-import com.idealista.domain.models.entity.PictureVO;
+import com.idealista.domain.model.entity.AdVO;
+import com.idealista.domain.model.entity.PictureVO;
+import com.idealista.domain.repository.AdListRepository;
+import com.idealista.domain.repository.PictureListRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -10,7 +12,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Repository
-public class InMemoryPersistence {
+public class InMemoryPersistence implements AdListRepository, PictureListRepository {
 
     private List<AdVO> ads;
     private List<PictureVO> pictures;
@@ -37,5 +39,14 @@ public class InMemoryPersistence {
         pictures.add(new PictureVO(8, "http://www.idealista.com/pictures/8", "HD"));
     }
 
-    //TODO crea los métodos que necesites
+    @Override
+    public List<AdVO> listAds() {
+        return ads;
+    }
+
+    @Override
+    public List<PictureVO> listPictures() {
+        return pictures;
+    }
+
 }

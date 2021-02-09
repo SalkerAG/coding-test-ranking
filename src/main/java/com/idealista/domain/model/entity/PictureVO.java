@@ -1,4 +1,4 @@
-package com.idealista.domain.models.entity;
+package com.idealista.domain.model.entity;
 
 public class PictureVO {
 

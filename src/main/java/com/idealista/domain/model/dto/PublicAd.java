@@ -1,4 +1,4 @@
-package com.idealista.domain.models.dto;
+package com.idealista.domain.model.dto;
 
 import java.util.List;
 
