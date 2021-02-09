@@ -1,4 +1,4 @@
-package com.idealista.infrastructure.persistence;
+package com.idealista.domain.models.entity;
 
 public class PictureVO {
 

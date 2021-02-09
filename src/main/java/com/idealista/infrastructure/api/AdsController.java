@@ -2,6 +2,8 @@ package com.idealista.infrastructure.api;
 
 import java.util.List;
 
+import com.idealista.domain.models.dto.PublicAd;
+import com.idealista.domain.models.dto.QualityAd;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 

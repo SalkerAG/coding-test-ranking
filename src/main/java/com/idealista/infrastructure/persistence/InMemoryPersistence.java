@@ -1,5 +1,7 @@
 package com.idealista.infrastructure.persistence;
 
+import com.idealista.domain.models.entity.AdVO;
+import com.idealista.domain.models.entity.PictureVO;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
