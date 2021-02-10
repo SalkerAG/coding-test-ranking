@@ -9,11 +9,11 @@ public class PictureListServiceImpl implements PictureListService {
     private PictureListRepository pictureListRepository;
 
     public PictureListServiceImpl(PictureListRepository pictureListRepository) {
-      this.pictureListRepository = pictureListRepository;
+        this.pictureListRepository = pictureListRepository;
     }
 
     @Override
     public List<PictureVO> listPictures() {
-      return pictureListRepository.listPictures();
+        return pictureListRepository.listPictures();
     }
 }

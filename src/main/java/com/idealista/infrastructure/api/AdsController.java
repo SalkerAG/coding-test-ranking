@@ -16,9 +16,6 @@ import java.util.List;
 @RequestMapping("/api/v1")
 public class AdsController {
 
-    private static final String DEFAULT_PAGE = "0";
-    private static final String DEFAULT_PAGE_SIZE = "5";
-
     private AdListService adListService;
     private AdMapper adMapper;
 
