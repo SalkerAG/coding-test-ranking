@@ -17,17 +17,18 @@ import java.util.List;
 public class AdsController {
 
     private AdListService adListService;
-    private AdMapper adMapper;
 
-    public AdsController(AdListService adListService, AdMapper adMapper) {
+    public AdsController(AdListService adListService) {
         this.adListService = adListService;
-        this.adMapper = adMapper;
     }
 
-    // TODO añade url del endpoint
+    @GetMapping("/quality-ads")
     public ResponseEntity<List<QualityAd>> qualityListing() {
-        // TODO rellena el cuerpo del método
-        return ResponseEntity.notFound().build();
+        try {
+            return ResponseEntity.ok(adListService.listQualityAds());
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
   @GetMapping("/ads")
