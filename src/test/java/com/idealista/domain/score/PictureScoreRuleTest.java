@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -29,22 +30,22 @@ public class PictureScoreRuleTest {
     }
 
     @Test
-    public void whenADVoHasOneHDPicture_shouldReturnMinus20ToScore() throws Exception {
-        AdVO ad = TestUtil.fakeAdVO(1, "", "", List.of(2), null, null, null, null);
+    public void whenADVoHasOneHDPicture_shouldReturn20ToScore() throws Exception {
+        AdVO ad = TestUtil.fakeAdVO(1, "", "", Arrays.asList(2), null, null, null, null);
         pictureScoreRule.execute(ad);
         assertEquals(20, (int) ad.getScore());
     }
 
     @Test
-    public void whenADVoHasOnePictureNotHD_shouldReturnMinus20ToScore() throws Exception {
-        AdVO ad = TestUtil.fakeAdVO(1, "", "", List.of(1), null, null, null, null);
+    public void whenADVoHasOnePictureNotHD_shouldReturn10ToScore() throws Exception {
+        AdVO ad = TestUtil.fakeAdVO(1, "", "", Arrays.asList(1), null, null, null, null);
         pictureScoreRule.execute(ad);
         assertEquals(10, (int) ad.getScore());
     }
 
     @Test
-    public void whenADVoHasMoreThanOnePicture_shouldReturnMinus20ToScore() throws Exception {
-        AdVO ad = TestUtil.fakeAdVO(1, "", "", List.of(1,2), null, null, null, null);
+    public void whenADVoHasMoreThanOnePicture_shouldReturnM30ToScore() throws Exception {
+        AdVO ad = TestUtil.fakeAdVO(1, "", "",Arrays.asList(1,2), null, null, null, null);
         pictureScoreRule.execute(ad);
         assertEquals(30, (int) ad.getScore());
     }

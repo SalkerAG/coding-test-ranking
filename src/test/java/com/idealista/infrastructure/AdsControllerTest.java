@@ -13,6 +13,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -50,7 +51,7 @@ public class AdsControllerTest {
 
     @Test
     public void whenAds_shouldReturnPublicAds() throws Exception {
-        List<AdVO> ads = List.of(TestUtil.fakeAdVO(1, "FLAT", "Test", Collections.emptyList(), null, null, null, null));
+        List<AdVO> ads = Arrays.asList((TestUtil.fakeAdVO(1, "FLAT", "Test", Collections.emptyList(), null, null, null, null)));
 
         when(adListService.listAds().stream().map(mapper::adVOToPublicAd).collect(Collectors.toList())).thenReturn(ads.stream().map(mapper::adVOToPublicAd).collect(Collectors.toList()));
         mock.perform(get("/api/v1/ads"))

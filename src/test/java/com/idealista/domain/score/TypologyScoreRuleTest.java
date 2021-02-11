@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -23,28 +24,28 @@ public class TypologyScoreRuleTest {
 
     @Test
     public void whenADVoTypeFlatDontApplyCriteria_shouldReturn0ToScore() throws Exception {
-        AdVO ad = TestUtil.fakeAdVO(1, "FLAT", "Testing", List.of(1), null, null, null, null);
+        AdVO ad = TestUtil.fakeAdVO(1, "FLAT", "Testing", Arrays.asList(1), null, null, null, null);
         typologyScoreRule.execute(ad);
         assertEquals(0, (int) ad.getScore());
     }
 
     @Test
     public void whenADVoTypeFlatApplyCriteria_shouldReturn40ToScore() throws Exception {
-        AdVO ad = TestUtil.fakeAdVO(1, "FLAT", "Testing", List.of(1), 200, null, null, null);
+        AdVO ad = TestUtil.fakeAdVO(1, "FLAT", "Testing", Arrays.asList(1), 200, null, null, null);
         typologyScoreRule.execute(ad);
         assertEquals(40, (int) ad.getScore());
     }
 
     @Test
     public void whenADVoTypeChaletDontApplyCriteria_shouldReturn0ToScore() throws Exception {
-        AdVO ad = TestUtil.fakeAdVO(1, "CHALET", "Testing", List.of(1), 200, null, null, null);
+        AdVO ad = TestUtil.fakeAdVO(1, "CHALET", "Testing", Arrays.asList(1), 200, null, null, null);
         typologyScoreRule.execute(ad);
         assertEquals(0, (int) ad.getScore());
     }
 
     @Test
     public void whenADVoTypeChaletApplyCriteria_shouldReturn40ToScore() throws Exception {
-        AdVO ad = TestUtil.fakeAdVO(1, "CHALET", "Testing", List.of(1), 200, 20, null, null);
+        AdVO ad = TestUtil.fakeAdVO(1, "CHALET", "Testing", Arrays.asList(1), 200, 20, null, null);
         typologyScoreRule.execute(ad);
         assertEquals(40, (int) ad.getScore());
     }
@@ -58,14 +59,14 @@ public class TypologyScoreRuleTest {
 
     @Test
     public void whenADVoTypeGarageApplyCriteria_shouldReturn40ToScore() throws Exception {
-        AdVO ad = TestUtil.fakeAdVO(1, "GARAGE", "", List.of(1), null, null, null, null);
+        AdVO ad = TestUtil.fakeAdVO(1, "GARAGE", "", Arrays.asList(1), null, null, null, null);
         typologyScoreRule.execute(ad);
         assertEquals(40, (int) ad.getScore());
     }
 
     @Test
     public void whenADVoDifferentType_shouldReturn0ToScore() throws Exception {
-        AdVO ad = TestUtil.fakeAdVO(1, "", "Testing", List.of(1), 200, 20, null, null);
+        AdVO ad = TestUtil.fakeAdVO(1, "", "Testing", Arrays.asList(1), 200, 20, null, null);
         typologyScoreRule.execute(ad);
         assertEquals(0, (int) ad.getScore());
     }
