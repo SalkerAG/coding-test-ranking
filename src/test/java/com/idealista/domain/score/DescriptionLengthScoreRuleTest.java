@@ -1,6 +1,5 @@
 package com.idealista.domain.score;
 
-import com.idealista.TestUtil;
 import com.idealista.domain.model.entity.AdVO;
 import com.idealista.domain.score.rule.DescriptionLengthScoreRule;
 import org.junit.Test;
@@ -30,49 +29,49 @@ public class DescriptionLengthScoreRuleTest {
 
     @Test
     public void whenADVoTypeFlatHasNoDescription_shouldReturn0ToScore() throws Exception {
-        AdVO ad = TestUtil.fakeAdVO(1, "FLAT", "", Collections.emptyList(), null, null, null, null);
+        AdVO ad = new AdVO(1, "FLAT", "", Collections.emptyList(), null, null, null, null);
         descriptionLengthScoreRule.execute(ad);
         assertEquals(0, (int) ad.getScore());
     }
 
     @Test
     public void whenADVoTypeFlatHasShortDescription_shouldReturn0ToScore() throws Exception {
-        AdVO ad = TestUtil.fakeAdVO(1, "FLAT", "Testing", Collections.emptyList(), null, null, null, null);
+        AdVO ad = new AdVO(1, "FLAT", "Testing", Collections.emptyList(), null, null, null, null);
         descriptionLengthScoreRule.execute(ad);
         assertEquals(0, (int) ad.getScore());
     }
 
     @Test
     public void whenADVoTypeFlatHasMediumDescription_shouldReturn10ToScore() throws Exception {
-        AdVO ad = TestUtil.fakeAdVO(1, "FLAT", MEDIUM_SIZE_STRING, Collections.emptyList(), null, null, null, null);
+        AdVO ad = new AdVO(1, "FLAT", MEDIUM_SIZE_STRING, Collections.emptyList(), null, null, null, null);
         descriptionLengthScoreRule.execute(ad);
         assertEquals(10, (int) ad.getScore());
     }
 
     @Test
     public void whenADVoTypeFlatHasLongDescription_shouldReturn30ToScore() throws Exception {
-        AdVO ad = TestUtil.fakeAdVO(1, "FLAT", LONG_SIZE_STRING, Collections.emptyList(), null, null, null, null);
+        AdVO ad = new AdVO(1, "FLAT", LONG_SIZE_STRING, Collections.emptyList(), null, null, null, null);
         descriptionLengthScoreRule.execute(ad);
         assertEquals(30, (int) ad.getScore());
     }
 
     @Test
     public void whenADVoTypeChaletHasNoDescription_shouldReturn0ToScore() throws Exception {
-        AdVO ad = TestUtil.fakeAdVO(1, "CHALET", "", Collections.emptyList(), null, null, null, null);
+        AdVO ad = new AdVO(1, "CHALET", "", Collections.emptyList(), null, null, null, null);
         descriptionLengthScoreRule.execute(ad);
         assertEquals(0, (int) ad.getScore());
     }
 
     @Test
     public void whenADVoTypeChatHasShortDescription_shouldReturn0ToScore() throws Exception {
-        AdVO ad = TestUtil.fakeAdVO(1, "CHALET", "Testing", Collections.emptyList(), null, null, null, null);
+        AdVO ad = new AdVO(1, "CHALET", "Testing", Collections.emptyList(), null, null, null, null);
         descriptionLengthScoreRule.execute(ad);
         assertEquals(0, (int) ad.getScore());
     }
 
     @Test
     public void whenADVoTypeChaletHasMediumDescription_shouldReturn10ToScore() throws Exception {
-        AdVO ad = TestUtil.fakeAdVO(1, "CHALET", LONG_SIZE_STRING, Collections.emptyList(), null, null, null, null);
+        AdVO ad = new AdVO(1, "CHALET", LONG_SIZE_STRING, Collections.emptyList(), null, null, null, null);
         descriptionLengthScoreRule.execute(ad);
         assertEquals(20, (int) ad.getScore());
     }

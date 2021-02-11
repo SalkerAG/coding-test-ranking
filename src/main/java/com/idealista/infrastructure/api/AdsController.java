@@ -8,6 +8,7 @@ import com.idealista.domain.model.entity.AdVO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -53,9 +54,9 @@ public class AdsController {
       }
   }
 
-    @GetMapping("/score-ads")
+    @PutMapping("/score-ads")
     public ResponseEntity<Void> calculateScore() {
         adListService.scoreAds();
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok().build();
     }
 }
