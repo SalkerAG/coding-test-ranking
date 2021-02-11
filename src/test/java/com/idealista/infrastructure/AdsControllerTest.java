@@ -121,6 +121,6 @@ public class AdsControllerTest {
 
     @Test
     public void whenScoreCalculate_shouldRespondVoid() throws Exception {
-        mock.perform(put("/api/v1/score-ads")).andExpect(status().isNoContent());
+        mock.perform(put("/api/v1/score-ads")).andExpect(status().isOk());
     }
 }
