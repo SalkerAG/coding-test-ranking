@@ -12,6 +12,7 @@ public class DescriptionScoreRule implements ScoreRule {
     public void execute(AdVO ad) {
         Integer pictureScore = ad.getScore() == null ? BASE_RULE_SCORE : ad.getScore();
         if (!ad.getDescription().isEmpty()) ad.setScore(HAS_DESCRIPTION + pictureScore);
+        else ad.setScore(pictureScore + BASE_RULE_SCORE);
     }
 
 }
