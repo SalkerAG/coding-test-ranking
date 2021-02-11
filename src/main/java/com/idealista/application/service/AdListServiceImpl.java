@@ -1,6 +1,5 @@
 package com.idealista.application.service;
 
-import com.idealista.domain.mapper.AdMapper;
 import com.idealista.domain.model.entity.AdVO;
 import com.idealista.domain.repository.AdListRepository;
 import com.idealista.domain.score.AdScore;
@@ -13,16 +12,14 @@ import java.util.List;
 public class AdListServiceImpl implements AdListService {
 
     private final AdListRepository adListRepository;
-    private final AdMapper adMapper;
     private final AdScore adScore;
     private static final Integer MIN_SCORE_PUBLIC_ADS = 40;
     private static final Integer MIN_SCORE = 0;
     private static final Integer MAX_SCORE = 100;
 
 
-    public AdListServiceImpl(AdListRepository adListRepository, AdMapper adMapper, AdScore adScore) {
+    public AdListServiceImpl(AdListRepository adListRepository, AdScore adScore) {
         this.adListRepository = adListRepository;
-        this.adMapper = adMapper;
         this.adScore = adScore;
     }
 
