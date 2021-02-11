@@ -16,6 +16,7 @@ public class TypologyScoreRule implements ScoreRule {
         Integer pictureScore = ad.getScore() == null ? BASE_RULE_SCORE : ad.getScore();
         if(isScorable(ad))
             ad.setScore(TYPOLOGY_SCORE + pictureScore);
+        else ad.setScore(BASE_RULE_SCORE + pictureScore);
     }
 
     //TODO Refactor extraer métodos
