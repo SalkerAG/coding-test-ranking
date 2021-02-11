@@ -29,14 +29,10 @@ public class AdListServiceImpl implements AdListService {
     }
 
     @Override
-    public List<AdVO> listQualityAds() {
-        return adListRepository.listAds();
-    }
-
-    @Override
     public void scoreAds() {
         List<AdVO> ads = adListRepository.listAds();
         ads.forEach(ad -> {
+            ad.setScore(MIN_SCORE);
             Integer score = adScore.calculate(ad);
             if(score == null) {
                 score = MIN_SCORE;

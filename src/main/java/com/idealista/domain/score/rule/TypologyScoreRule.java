@@ -19,7 +19,6 @@ public class TypologyScoreRule implements ScoreRule {
         else ad.setScore(BASE_RULE_SCORE + pictureScore);
     }
 
-    //TODO Refactor extraer métodos
     boolean isScorable(AdVO ad) {
         boolean condition = false;
         if ((isGarage(ad) && havePicture(ad))

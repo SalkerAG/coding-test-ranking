@@ -31,7 +31,7 @@ public class AdsController {
     @GetMapping("/quality-ads")
     public ResponseEntity<List<QualityAd>> qualityListing() {
         try {
-            return ResponseEntity.ok(adListService.listQualityAds().stream()
+            return ResponseEntity.ok(adListService.listAds().stream()
                     .filter(ad -> (ad.getScore() == null || ad.getScore() < MIN_SCORE_PUBLIC_ADS))
                     .map(adMapper::adVOToQualityAd)
                     .collect(Collectors.toList()));

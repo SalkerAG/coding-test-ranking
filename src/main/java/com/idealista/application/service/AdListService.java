@@ -6,6 +6,5 @@ import java.util.List;
 
 public interface AdListService {
     List<AdVO> listAds();
-    List<AdVO> listQualityAds();
     void scoreAds();
 }

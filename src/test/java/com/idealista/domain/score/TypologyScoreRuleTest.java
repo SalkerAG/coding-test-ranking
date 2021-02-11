@@ -2,7 +2,6 @@ package com.idealista.domain.score;
 
 import com.idealista.TestUtil;
 import com.idealista.domain.model.entity.AdVO;
-import com.idealista.domain.score.rule.PictureScoreRule;
 import com.idealista.domain.score.rule.TypologyScoreRule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
