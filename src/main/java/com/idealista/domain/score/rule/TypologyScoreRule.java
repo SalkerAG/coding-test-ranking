@@ -21,16 +21,44 @@ public class TypologyScoreRule implements ScoreRule {
     //TODO Refactor extraer métodos
     boolean isScorable(AdVO ad) {
         boolean condition = false;
-        if ((ad.getTypology().equals(GARAGE) && !ad.getPictures().isEmpty())
-                || (ad.getTypology().equals(FLAT)
-                && !ad.getPictures().isEmpty()
-                && !ad.getDescription().isEmpty()
-                && ad.getHouseSize() != null)
-                || (ad.getTypology().equals(CHALET)
-                && !ad.getPictures().isEmpty()
-                && !ad.getDescription().isEmpty()
-                && ad.getHouseSize() != null
-                && ad.getGardenSize() != null)) condition = true;
+        if ((isGarage(ad) && havePicture(ad))
+                || (isFlat(ad)
+                && havePicture(ad)
+                && haveDescription(ad)
+                && haveHouseSize(ad))
+                || (isChalet(ad)
+                && havePicture(ad)
+                && haveDescription(ad)
+                && haveHouseSize(ad)
+                && haveGardenSize(ad))) condition = true;
         return condition;
+    }
+
+    boolean isGarage(AdVO ad) {
+        return ad.getTypology().equals(GARAGE);
+    }
+
+    boolean isFlat(AdVO ad) {
+        return ad.getTypology().equals(FLAT);
+    }
+
+    boolean isChalet(AdVO ad) {
+        return ad.getTypology().equals(CHALET);
+    }
+
+    boolean havePicture(AdVO ad) {
+        return !ad.getPictures().isEmpty();
+    }
+
+    boolean haveDescription(AdVO ad) {
+        return !ad.getDescription().isEmpty();
+    }
+
+    boolean haveHouseSize(AdVO ad) {
+        return ad.getHouseSize() != null;
+    }
+
+    boolean haveGardenSize(AdVO ad) {
+        return ad.getGardenSize() != null;
     }
 }
