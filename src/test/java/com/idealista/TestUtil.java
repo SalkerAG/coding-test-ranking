@@ -5,9 +5,14 @@ import com.idealista.domain.model.entity.PictureVO;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 public class TestUtil {
+
+    public static AdVO fakeAdVO(Integer id, String typology, String description, List<Integer> pictures, Integer houseSize, Integer gardenSize, Integer score, Date irrelevantSince) {
+        return new AdVO(id, typology, description, pictures, houseSize, gardenSize, score, irrelevantSince);
+    }
 
     public static List<AdVO> fakeAdVOList() {
         List<AdVO> ads = new ArrayList<AdVO>();
