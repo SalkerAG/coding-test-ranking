@@ -24,8 +24,6 @@ public class AdScoreImpl implements AdScore {
     }
 
     private void applyRules(AdVO ad) {
-        scoreRules.forEach(rule -> {
-            rule.execute(ad);
-        });
+        scoreRules.forEach(rule -> rule.execute(ad));
     }
 }
