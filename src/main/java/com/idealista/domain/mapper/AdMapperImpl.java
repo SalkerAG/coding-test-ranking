@@ -3,7 +3,6 @@ package com.idealista.domain.mapper;
 import com.idealista.domain.model.dto.PublicAd;
 import com.idealista.domain.model.dto.QualityAd;
 import com.idealista.domain.model.entity.AdVO;
-import com.idealista.domain.repository.AdListRepository;
 import com.idealista.domain.repository.PictureListRepository;
 import org.springframework.stereotype.Component;
 
@@ -15,11 +14,9 @@ import java.util.Objects;
 @Component
 public class AdMapperImpl implements AdMapper {
 
-    private AdListRepository adListRepository;
-    private PictureListRepository pictureListRepository;
+    private final PictureListRepository pictureListRepository;
 
-    public AdMapperImpl(AdListRepository adListRepository, PictureListRepository pictureListRepository) {
-        this.adListRepository = adListRepository;
+    public AdMapperImpl(PictureListRepository pictureListRepository) {
         this.pictureListRepository = pictureListRepository;
     }
 
@@ -54,15 +51,13 @@ public class AdMapperImpl implements AdMapper {
         if (ad.getPictures() != Collections.<Integer>emptyList()) {
             ad.getPictures()
                 .forEach(
-                    id -> {
-                        picturesUrl.add(
-                            Objects.requireNonNull(
-                                    pictureListRepository.listPictures().stream()
-                                        .filter(pic -> pic.getId().equals(id))
-                                        .findFirst()
-                                        .orElse(null))
-                                    .getUrl());
-                    }
+                    id -> picturesUrl.add(
+                        Objects.requireNonNull(
+                                pictureListRepository.listPictures().stream()
+                                    .filter(pic -> pic.getId().equals(id))
+                                    .findFirst()
+                                    .orElse(null))
+                                .getUrl())
                 );
         }
         return picturesUrl;

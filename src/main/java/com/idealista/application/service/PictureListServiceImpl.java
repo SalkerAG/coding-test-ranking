@@ -8,7 +8,8 @@ import java.util.List;
 
 @Service
 public class PictureListServiceImpl implements PictureListService {
-    private PictureListRepository pictureListRepository;
+
+    private final PictureListRepository pictureListRepository;
 
     public PictureListServiceImpl(PictureListRepository pictureListRepository) {
         this.pictureListRepository = pictureListRepository;

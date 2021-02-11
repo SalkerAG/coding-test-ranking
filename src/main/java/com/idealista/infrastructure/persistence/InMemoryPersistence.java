@@ -49,4 +49,8 @@ public class InMemoryPersistence implements AdListRepository, PictureListReposit
         return pictures;
     }
 
+    @Override
+    public PictureVO getPictureById(Integer id) {
+        return pictures.stream().filter(picture -> picture.getId().equals(id)).findFirst().orElse(null);
+    }
 }
