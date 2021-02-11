@@ -2,7 +2,6 @@ package com.idealista.domain.score;
 
 import com.idealista.TestUtil;
 import com.idealista.domain.model.entity.AdVO;
-import com.idealista.domain.score.rule.DescriptionLengthScoreRule;
 import com.idealista.domain.score.rule.DescriptionScoreRule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,14 +21,14 @@ public class DescriptionScoreRuleTest {
     private DescriptionScoreRule descriptionScoreRule;
 
     @Test
-    public void whenADVoTypeFlatHasNoDescription_shouldReturn0ToScore() throws Exception {
+    public void whenADVoHasNoDescription_shouldReturn0ToScore() throws Exception {
         AdVO ad = TestUtil.fakeAdVO(1, "", "", Collections.emptyList(), null, null, null, null);
         descriptionScoreRule.execute(ad);
         assertEquals(0, (int) ad.getScore());
     }
 
     @Test
-    public void whenADVoTypeFlatHasDescription_shouldReturn0ToScore() throws Exception {
+    public void whenADVoHasDescription_shouldReturn0ToScore() throws Exception {
         AdVO ad = TestUtil.fakeAdVO(1, "", "Test", Collections.emptyList(), null, null, null, null);
         descriptionScoreRule.execute(ad);
         assertEquals(5, (int) ad.getScore());
